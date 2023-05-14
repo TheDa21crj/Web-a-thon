@@ -24,6 +24,7 @@ app.use((req, res, next) => {
 
   next();
 });
+
 app.get("/test", (req, res) => {
   res.send("Hello Server");
 });
