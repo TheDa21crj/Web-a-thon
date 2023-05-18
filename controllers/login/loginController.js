@@ -16,7 +16,6 @@ const register = async (req, res, next) => {
   let users;
   try {
     users = await user.findOne({ email: email });
-    console.log(users);
   } catch (e) {
     const error = new HttpError("Wrong Email Credentials", 400);
     return next(error);
@@ -33,6 +32,9 @@ const register = async (req, res, next) => {
       const error = new HttpError("gravatar error", 400);
       return next(error);
     }
+
+    console.log("---skills---");
+    console.log(skills);
 
     const newUser = new user({
       name: name,
