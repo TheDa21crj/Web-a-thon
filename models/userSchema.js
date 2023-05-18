@@ -16,10 +16,8 @@ const userSchema = new mongoose.Schema({
   },
   skills: [
     {
-      name: {
-        type: String,
-        required: true,
-      },
+      type: String,
+      required: true,
     },
   ],
   portfolio: [
