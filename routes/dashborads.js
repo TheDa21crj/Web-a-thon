@@ -7,6 +7,7 @@ const { check, validationResult } = require("express-validator");
 // auth
 router.use(auth);
 
+// Private || User Applied to
 router.post("/Applied", dashboard.Applied);
 
 // Private || Get all events from the user
