@@ -109,7 +109,8 @@ const Applied = async (req, res, next) => {
         .find({
           userID: userData._id,
         })
-        .populate("competitionID");
+        .populate("competitionID")
+        .populate("hostID");
 
       res.status(202).send(comData);
     } catch (e) {
