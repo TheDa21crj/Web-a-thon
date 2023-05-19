@@ -14,7 +14,7 @@ router.post(
   dashboard.getUserEvents
 );
 
-// Private ||
+// Private ||  All Req for Competition
 router.post(
   "/AllReq",
   [check("id", "id is Required").not().isEmpty()],
