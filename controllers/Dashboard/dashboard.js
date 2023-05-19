@@ -97,6 +97,7 @@ const AllreqUsers = async (req, res, next) => {
   }
 };
 
+// Private || User Applied to
 const Applied = async (req, res, next) => {
   let userData;
 
