@@ -14,13 +14,14 @@ router.post(
   dashboard.getUserEvents
 );
 
-// Private ||
+// Private ||  All Req for Competition
 router.post(
   "/AllReq",
   [check("id", "id is Required").not().isEmpty()],
   dashboard.Allreq
 );
 
+// Private || All Requesed Users
 router.post(
   "/AllReqUsers",
   [check("id", "id is Required").not().isEmpty()],
