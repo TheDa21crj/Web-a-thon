@@ -7,6 +7,8 @@ const { check, validationResult } = require("express-validator");
 // auth
 router.use(auth);
 
+router.post("/Applied", dashboard.Applied);
+
 // Private || Get all events from the user
 router.post(
   "/Get",
@@ -27,7 +29,5 @@ router.post(
   [check("id", "id is Required").not().isEmpty()],
   dashboard.AllreqUsers
 );
-
-router.post("/Applied", dashboard.Applied);
 
 module.exports = router;
