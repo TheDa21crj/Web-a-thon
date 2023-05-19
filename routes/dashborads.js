@@ -14,6 +14,7 @@ router.post(
   dashboard.getUserEvents
 );
 
+// Private ||
 router.post(
   "/AllReq",
   [check("id", "id is Required").not().isEmpty()],
