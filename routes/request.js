@@ -47,4 +47,11 @@ router.post(
   request.RejReq
 );
 
+// Private || All reqs of competitions
+router.post(
+  "/AllReqofCom",
+  [check("competitionID", "competitionID is Required").not().isEmpty()],
+  request.AllReqofCom
+);
+
 module.exports = router;
