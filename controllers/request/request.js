@@ -237,10 +237,11 @@ const AllReqofCom = async (req, res, next) => {
   const { competitionID } = req.body;
   try {
     let comData = await request
-      .findOne({
+      .find({
         competitionID,
       })
-      .populate("userID");
+      .populate("userID")
+      .populate("competitionID");
 
     var userData = res.locals.userData;
     res.status(202).json({ userData, comData });
