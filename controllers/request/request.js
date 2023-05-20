@@ -237,7 +237,14 @@ const AllReqofCom = async (req, res, next) => {
   const { competitionID } = req.body;
   try {
     // console.log();
-    res.status(202).json(res.locals.userData, competitionID);
+    let comData = await request
+      .findOne({
+        competitionID,
+      })
+      .populate("userID");
+
+    var userData = res.locals.userData;
+    res.status(202).json({ userData, comData });
   } catch (e) {
     const error = new HttpError("Email Not Found", 505);
     console.log(e);
