@@ -236,7 +236,6 @@ const AllReqofCom = async (req, res, next) => {
 
   const { competitionID } = req.body;
   try {
-    // console.log();
     let comData = await request
       .findOne({
         competitionID,
