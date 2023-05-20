@@ -51,7 +51,6 @@ router.post(
 router.post(
   "/AllReqofCom",
   [check("competitionID", "competitionID is Required").not().isEmpty()],
-  [check("userID", "userID is Required").not().isEmpty()],
   request.AllReqofCom
 );
 
