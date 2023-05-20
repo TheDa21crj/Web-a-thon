@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const { request } = require("express");
+const connectDB = require("./config/db");
 
 const app = express();
 
@@ -38,11 +39,8 @@ app.use("/api/competition", require("./routes/competition"));
 app.use("/api/request", require("./routes/request"));
 app.use("/api/dashborads", require("./routes/dashborads"));
 
-const port = process.env.PORT || 5000;
+connectDB();
 
-mongoose.connect(process.env.DB_URI).then(
-  app.listen(port, () => {
-    console.log("Listining on port " + port);
-    console.log("connected");
-  })
-);
+app.listen(process.env.PORT, () => {
+  console.log(`server started on port ${process.env.PORT}`);
+});
