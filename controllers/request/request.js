@@ -229,7 +229,20 @@ const RejReq = async (req, res, next) => {
 };
 
 const AllReqofCom = async (req, res, next) => {
-  console.log("AllReqofCom");
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  const { competitionID } = req.body;
+  try {
+    // console.log();
+    res.status(202).json(res.locals.userData, competitionID);
+  } catch (e) {
+    const error = new HttpError("Email Not Found", 505);
+    console.log(e);
+    return next(error);
+  }
 };
 
 exports.addReq = addReq;
