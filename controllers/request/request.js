@@ -228,8 +228,13 @@ const RejReq = async (req, res, next) => {
   }
 };
 
+const AllReqofCom = async (req, res, next) => {
+  console.log("AllReqofCom");
+};
+
 exports.addReq = addReq;
 exports.RejReq = RejReq;
-exports.statusCheck = statusCheck;
-exports.AcceptReq = AcceptReq;
 exports.RejectReq = RejectReq;
+exports.AcceptReq = AcceptReq;
+exports.AllReqofCom = AllReqofCom;
+exports.statusCheck = statusCheck;
