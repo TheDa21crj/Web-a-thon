@@ -239,6 +239,7 @@ const AllReqofCom = async (req, res, next) => {
     let comData = await request
       .find({
         competitionID,
+        status: "applied",
       })
       .populate("userID")
       .populate("competitionID");
