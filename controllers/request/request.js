@@ -103,6 +103,7 @@ const AcceptReq = async (req, res, next) => {
   try {
     comData = await request.findOne({
       competitionID,
+      userID,
     });
 
     if (comData) {
