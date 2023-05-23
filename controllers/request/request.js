@@ -207,14 +207,18 @@ const RejReq = async (req, res, next) => {
   try {
     comData = await request.findOne({
       competitionID,
+      userID,
     });
 
     if (comData) {
       comData.status = "reject";
       try {
-        await comData.save();
+        let s = await comData.save();
 
-        return res.status(202).send("Req Rej");
+        console.log("================");
+        console.log(comData);
+
+        return res.status(202).send({ msg: "Req Rej", s });
       } catch (e) {
         const error = new HttpError("Error saving the updated event", 401);
         console.log(e);
