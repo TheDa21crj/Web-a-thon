@@ -155,7 +155,12 @@ const DeleteCompetition = async (req, res, next) => {
 // Public || View Competition
 const ViewCompetition = async (req, res, next) => {
   try {
-    let comData = await Competitions.findById(req.params.id).populate("host");
+    let comData = await Competitions.findById(req.params.id)
+      .populate("host")
+      .populate({
+        path: "participants",
+        populate: { path: "_id", model: "Users" },
+      });
 
     console.log(comData);
     res.status(202).send(comData);
